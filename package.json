@@ -1,0 +1,29 @@
+{
+  "name": "pulse",
+  "version": "1.0.0",
+  "description": "Pulse Capstone",
+  "main": "config.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "chai": "^4.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "mocha": "^5.2.0",
+    "mongoose": "^5.3.14",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
+  },
+  "scripts": {
+    "test": "mocha --exit",
+    "start": "node server.js",
+    "heroku-postbuild": "cd Client && npm install --only=dev && npm install && npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
+}
