@@ -8,6 +8,8 @@ const cors = require('cors');
 const {PORT, DATABASE_URL} = require('./config');
 const {Teams} = require('./models');
 const passport = require('passport');
+const favicon = require('express-favicon');
+const path = require('path');
 
 
 app.use(express.static('public'));
@@ -48,7 +50,7 @@ const jwtAuth = passport.authenticate('jwt', { session: false });
 
 app.use(express.static(path.join(__dirname, 'Client/build')));
 
-app.get('*', (req,res) =>{
+app.get('/', (req,res) =>{
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
