@@ -18,7 +18,7 @@ const createAuthToken = function(user) {
 const localAuth = passport.authenticate('local', {session: false});
 router.use(bodyParser.json());
 // The user provides a username and password to login
-router.post('https://aqueous-cliffs-74103.herokuapp.com/', localAuth, (req, res) => {
+router.post('/login', localAuth, (req, res) => {
     const authToken = createAuthToken(req.user.serialize());
     res.json({authToken});
 });
@@ -26,7 +26,7 @@ router.post('https://aqueous-cliffs-74103.herokuapp.com/', localAuth, (req, res)
 const jwtAuth = passport.authenticate('jwt', {session: false});
 
 // The user exchanges a valid JWT for a new one with a later expiration
-router.post('https://aqueous-cliffs-74103.herokuapp.com/', jwtAuth, (req, res) => {
+router.post('/refresh', jwtAuth, (req, res) => {
     const authToken = createAuthToken(req.user);
     res.json({authToken});
 });
