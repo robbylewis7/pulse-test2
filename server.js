@@ -17,7 +17,7 @@ app.use(express.static('public'));
 app.use(express.json());
 
 app.use(cors({
-    origin: 'https://aqueous-cliffs-74103.herokuapp.com'
+    origin: 'http://localhost:3000'
 }));
 
 

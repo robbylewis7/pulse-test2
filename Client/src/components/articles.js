@@ -59,7 +59,7 @@ export default class Articles extends React.Component {
 
     refreshArticles(){
         console.log('refresh');
-        fetch('http://localhost:8080/teams/'+localStorage.getItem('username'))
+        fetch('https://aqueous-cliffs-74103.herokuapp.com/teams/'+localStorage.getItem('username'))
         .then(res => {
             if (!res.ok) { return Promise.reject(res.statusText); }
             return res.json()

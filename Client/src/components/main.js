@@ -32,7 +32,7 @@ export default class Main extends React.Component {
             teams: [...this.state.teams, { team }]
         });
         console.log('Teams', team)
-        fetch('http://localhost:8080/teams/' + localStorage.getItem('username'), {
+        fetch('https://aqueous-cliffs-74103.herokuapp.com/teams/' + localStorage.getItem('username'), {
             method: "POST",
             body: JSON.stringify({
                 team: team,
@@ -62,7 +62,7 @@ export default class Main extends React.Component {
             teams: [...this.state.teams, { team }]
         });
         console.log('Teams', team)
-        fetch('http://localhost:8080/teams/' + localStorage.getItem('username'), {
+        fetch('https://aqueous-cliffs-74103.herokuapp.com/teams/' + localStorage.getItem('username'), {
             method: "PUT",
             body: JSON.stringify({
                 team: team,
@@ -88,7 +88,7 @@ export default class Main extends React.Component {
 
     componentDidMount() {
 
-        fetch('http://localhost:8080/teams/' + localStorage.getItem('username'))
+        fetch('https://aqueous-cliffs-74103.herokuapp.com/teams/' + localStorage.getItem('username'))
             .then(res => {
                 if (!res.ok) { return Promise.reject(res.statusText); }
                 return res.json()
