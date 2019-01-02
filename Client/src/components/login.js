@@ -24,7 +24,7 @@ export default class Login extends React.Component {
   handleSubmit(event) {
     console.log('A name was submitted: ' + this.state.username);
     event.preventDefault();
-    fetch('https://aqueous-cliffs-74103.herokuapp.com/api/auth/login', {
+    fetch('/api/auth/login', {
       method: "POST",
       body: JSON.stringify({
         username: this.state.username,
