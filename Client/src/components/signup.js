@@ -35,7 +35,7 @@ export default class Signup extends React.Component {
           }
 
           addTeam(username){
-            fetch('http://localhost:8080/teams',{
+            fetch('https://aqueous-cliffs-74103.herokuapp.com/teams',{
               method: "POST",
               body: JSON.stringify({
                   team: [],
@@ -61,7 +61,7 @@ export default class Signup extends React.Component {
             console.log('A name was submitted: ' + this.state.username);
             event.preventDefault();
             // window.location = '/login';
-            fetch('http://localhost:8080/api/users',{
+            fetch('https://aqueous-cliffs-74103.herokuapp.com/api/users',{
               method: "POST",
               body: JSON.stringify({
                   username: this.state.username,
