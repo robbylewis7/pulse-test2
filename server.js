@@ -50,13 +50,13 @@ const jwtAuth = passport.authenticate('jwt', { session: false });
 
 app.use(express.static(path.join(__dirname, 'Client/build')));
 
-app.get('https://aqueous-cliffs-74103.herokuapp.com/', (req,res) =>{
+app.get('/', (req,res) =>{
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 
 
-app.get('https://aqueous-cliffs-74103.herokuapp.com/teams', (req, res) => {
+app.get('/teams', (req, res) => {
       Teams.find()
         .then(teams => {
             res.status(200).json({
@@ -74,7 +74,7 @@ app.get('https://aqueous-cliffs-74103.herokuapp.com/teams', (req, res) => {
 
 
 
-app.get('https://aqueous-cliffs-74103.herokuapp.com/teams/:user', (req, res) => { 
+app.get('/teams/:user', (req, res) => { 
   Teams.find({user: req.params.user})
       .then(teams => {
             res.status(200).json({
@@ -89,7 +89,7 @@ app.get('https://aqueous-cliffs-74103.herokuapp.com/teams/:user', (req, res) => 
 
 
 
-app.post('https://aqueous-cliffs-74103.herokuapp.com/teams', (req, res) => {
+app.post('/teams', (req, res) => {
 
   const requiredFields = ['team', 'user'];
   for (let i = 0; i < requiredFields.length; i++) {
@@ -123,7 +123,7 @@ Teams.find().then(team => {
     
     
     
-app.put('https://aqueous-cliffs-74103.herokuapp.com/teams/:user', (req, res) => {
+app.put('/teams/:user', (req, res) => {
   if (!(req.params.user && req.body.user && req.params.user === req.body.user)) {
     const message =
       `Request path user (${req.params.user}) and request body user ` +
@@ -169,7 +169,7 @@ app.put('https://aqueous-cliffs-74103.herokuapp.com/teams/:user', (req, res) => 
     
     
     
-app.delete('https://aqueous-cliffs-74103.herokuapp.com/teams/:id', (req, res) => {
+app.delete('/teams/:id', (req, res) => {
   Teams.findByIdAndRemove(req.params.id)
     .then(log => res.status(204).end())
     .catch(err => {
